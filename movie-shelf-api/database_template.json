@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "johndoe",
+      "email": "johndoe@example.com",
+      "password": "password123"
+    }
+  ],
+  "watchlists": [
+    {
+      "id": 1,
+      "userId": 1,
+      "watchlistName": "Currently Watching"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "watchlistName": "Completed"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "watchlistName": "Plan to Watch"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "watchlistName": "On Hold"
+    }
+  ],
+  "series": [
+    {
+      "id": 1,
+      "userId": 1,
+      "watchlistId": 1,
+      "title": "Breaking Bad",
+      "imageURL": "https://example.com/image.jpg",
+      "status": "Currently Watching",
+      "rating": 5,
+      "notes": "An amazing show with great character development."
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "watchlistId": 2,
+      "title": "Inception",
+      "imageURL": "https://example.com/image2.jpg",
+      "status": "Completed",
+      "rating": 4,
+      "notes": "Mind-bending movie with great visuals."
+    }
+  ],
+  "optionalTags": [
+    {
+      "id": 1,
+      "name": "Sci-Fi"
+    },
+    {
+      "id": 2,
+      "name": "Action"
+    },
+    {
+      "id": 3,
+      "name": "Drama"
+    }
+  ],
+  "optionalItemTags": [
+    {
+      "id": 1,
+      "itemId": 1,
+      "tagId": 2
+    },
+    {
+      "id": 2,
+      "itemId": 2,
+      "tagId": 1
+    }
+  ]
+}
