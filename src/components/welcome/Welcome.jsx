@@ -1,3 +1,5 @@
 export const Welcome = () => {
-  return <>Welcome</>
+  return (
+    <>Welcome to The Movie Shelf: Curate, Track, and Tackle Your Backlog.</>
+  )
 }
