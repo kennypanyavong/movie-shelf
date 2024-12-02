@@ -49,8 +49,9 @@ export const Register = (props) => {
   return (
     <main style={{ textAlign: "center" }}>
       <form className="form-login" onSubmit={handleRegister}>
-        <h1>The Movie Shelf</h1>
-        <h2>Please Register</h2>
+        <h2 className="text-center mb-4 bg-dark text-white p-3 rounded">
+          Please Register
+        </h2>
         <fieldset>
           <div className="form-group">
             <input
@@ -79,7 +80,7 @@ export const Register = (props) => {
         <fieldset>
           <div className="form-group">
             <button className="login-btn btn-info" type="submit">
-              Register
+              Sign Up!
             </button>
           </div>
         </fieldset>

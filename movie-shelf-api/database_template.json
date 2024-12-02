@@ -1,12 +1,5 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "johndoe",
-      "email": "johndoe@example.com",
-      "password": "password123"
-    }
-  ],
+  "users": [],
   "watchlists": [
     {
       "id": 1,
@@ -29,28 +22,7 @@
       "watchlistName": "On Hold"
     }
   ],
-  "series": [
-    {
-      "id": 1,
-      "userId": 1,
-      "watchlistId": 1,
-      "title": "Breaking Bad",
-      "imageURL": "https://example.com/image.jpg",
-      "status": "Currently Watching",
-      "rating": 5,
-      "notes": "An amazing show with great character development."
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "watchlistId": 2,
-      "title": "Inception",
-      "imageURL": "https://example.com/image2.jpg",
-      "status": "Completed",
-      "rating": 4,
-      "notes": "Mind-bending movie with great visuals."
-    }
-  ],
+  "series": [],
   "optionalTags": [
     {
       "id": 1,

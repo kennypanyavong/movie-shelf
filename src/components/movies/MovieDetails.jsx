@@ -35,15 +35,33 @@ export const MovieDetails = () => {
   const handleEditMovie = async () => {
     navigate(`/movie/${movie.id}/edit`)
   }
+
   return (
-    <div>
-      <h1>{movie.title}</h1>
-      <img src={movie.imageURL} alt={movie.title} style={{ width: "200px" }} />
-      <p>Rating: {movie.rating} stars</p>
-      <p>Notes: {movie.notes || "No notes added"}</p>
-      <div>
-        <button onClick={handleDeleteMovie}>Delete</button>
-        <button onClick={handleEditMovie}>Edit</button>
+    <div className="container mt-4">
+      <div className="card mx-auto bg-dark" style={{ width: "24rem" }}>
+        <img
+          src={movie.imageURL}
+          className="card-img-top"
+          alt={movie.title}
+          style={{ height: "500px", objectFit: "contain" }}
+        />
+        <div className="card-body text-white">
+          <h5 className="card-title text-center">{movie.title}</h5>
+          <p className="card-text text-white">
+            <strong>Rating:</strong> ⭐ {movie.rating}
+          </p>
+          <p className="card-text text-white">
+            <strong>Notes:</strong> {movie.notes || "No notes added"}
+          </p>
+          <div className="d-flex justify-content-between">
+            <button className="btn btn-danger" onClick={handleDeleteMovie}>
+              Delete
+            </button>
+            <button className="btn btn-primary" onClick={handleEditMovie}>
+              Edit
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -8,18 +8,22 @@ import { Register } from "./components/auth/Register"
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route
-        path="*"
-        element={
-          <Authorized>
-            <ApplicationView />
-          </Authorized>
-        }
-      />
-    </Routes>
+    <div className="app-background">
+      <div className="content-wrapper mx-auto" style={{ maxWidth: "800px" }}>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="*"
+            element={
+              <Authorized>
+                <ApplicationView />
+              </Authorized>
+            }
+          />
+        </Routes>
+      </div>
+    </div>
   )
 }
 

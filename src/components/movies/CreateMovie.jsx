@@ -45,13 +45,18 @@ export const CreateMovie = () => {
   }
 
   return (
-    <div>
-      <h2>What Are you Watching?</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
+    <div className="container mt-4 pt-5">
+      <h2 className="text-center mb-4 bg-dark text-white p-3 rounded">
+        What Are You Watching?
+      </h2>
+      <form onSubmit={handleSubmit} className="bg-dark p-4 rounded shadow-sm">
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label text-white">
+            Title
+          </label>
           <input
             type="text"
+            className="form-control"
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -59,20 +64,27 @@ export const CreateMovie = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="imageURL">Add a Picture?</label>
+        <div className="mb-3">
+          <label htmlFor="imageURL" className="form-label text-white">
+            Add a Picture?
+          </label>
           <input
             type="text"
+            className="form-control"
             id="imageURL"
             value={imageURL}
             onChange={(e) => setImageURL(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="rating">Rating</label>
+
+        <div className="mb-3">
+          <label htmlFor="rating" className="form-label text-white">
+            Rating
+          </label>
           <input
             type="number"
+            className="form-control"
             id="rating"
             value={rating}
             onChange={(e) => setRating(Number(e.target.value))}
@@ -82,18 +94,24 @@ export const CreateMovie = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="notes">Notes/Review</label>
+        <div className="mb-3">
+          <label htmlFor="notes" className="form-label text-white">
+            Notes/Review
+          </label>
           <textarea
+            className="form-control"
             id="notes"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-          />
+          ></textarea>
         </div>
 
-        <div>
-          <label htmlFor="watchlist">Add to which Watchlist?</label>
+        <div className="mb-3">
+          <label htmlFor="watchlist" className="form-label text-white">
+            Add to Which Watchlist?
+          </label>
           <select
+            className="form-select"
             id="watchlist"
             value={selectedWatchlist}
             onChange={(e) => setSelectedWatchlist(e.target.value)}
@@ -107,8 +125,11 @@ export const CreateMovie = () => {
             ))}
           </select>
         </div>
-
-        <button type="submit">Add Movie</button>
+        <div className="mb-3 d-flex justify-content-center">
+          <button type="submit" className="btn btn-success">
+            Add Movie
+          </button>
+        </div>
       </form>
     </div>
   )

@@ -11,5 +11,5 @@
   flex-grow: 1;
   list-style-type: none;
   text-align: center;
-  position: relative; /* Added for dropdown positioning */
+  position: relative;
 }

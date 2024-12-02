@@ -30,7 +30,10 @@ export const Login = () => {
   return (
     <main className="container-login">
       <section>
-        <form className="form-login" onSubmit={handleLogin}>
+        <form
+          className="form-login text-center mb-4 bg-dark text-white p-3 rounded"
+          onSubmit={handleLogin}
+        >
           <h1>Welcome to The Movie Shelf</h1>
           <h2>Please sign in</h2>
           <fieldset>
@@ -47,14 +50,14 @@ export const Login = () => {
             </div>
           </fieldset>
           <fieldset>
-            <div className="form-group">
+            <div className="form-group p-3">
               <button className="login-btn btn-info" type="submit">
                 Sign in
               </button>
             </div>
           </fieldset>
         </form>
-        <section className="register-section">
+        <section className="register-section bg-dark text-white p-3 rounded text-center">
           <p>Don't have an account?</p>
           <button
             className="register-btn btn-secondary"
