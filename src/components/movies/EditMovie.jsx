@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react"
 import { getAllMovies, updateMovie } from "../../services/movieService"
 import { useNavigate, useParams } from "react-router-dom"
+import { getWatchlists } from "../../services/watchlistService"
 
 export const EditMovie = () => {
   const { id } = useParams()
   const [movie, setMovie] = useState(null)
   const [error, setError] = useState(null)
+  const [selectedWatchlist, setSelectedWatchlist] = useState("")
+  const [watchlists, setWatchlists] = useState([])
   const navigate = useNavigate()
+
+  useEffect(() => {
+    getWatchlists().then((data) => {
+      setWatchlists(data)
+    })
+  }, [])
 
   // Fetch the movie data
   useEffect(() => {
@@ -23,13 +32,12 @@ export const EditMovie = () => {
               return
             }
             setMovie(foundMovie)
-            console.log("Found movie:", foundMovie)
+            setSelectedWatchlist(foundMovie.watchlistId)
           } else {
             setError("Movie not found.")
           }
         })
         .catch((error) => {
-          console.error("error fetching movies:", error)
           setError("Failed to fetch movie data.")
         })
     }
@@ -54,10 +62,9 @@ export const EditMovie = () => {
       return
     }
 
-    const updatedMovie = { ...movie, userId }
+    const updatedMovie = { ...movie, userId, watchlistId: selectedWatchlist }
     try {
       await updateMovie(updatedMovie)
-      console.log("Updated movie to be sent:", updatedMovie)
       navigate(`/movie/${movie.id}`)
     } catch {
       setError("Failed to update movie.")
@@ -73,13 +80,18 @@ export const EditMovie = () => {
   }
 
   return (
-    <div>
-      <h2>What do you want to change?</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
+    <div className="container mt-4 pt-5">
+      <h2 className="text-center mb-4 bg-dark text-white p-3 rounded">
+        What do you want to change?
+      </h2>
+      <form onSubmit={handleSubmit} className="bg-dark p-4 rounded shadow-sm">
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label text-white">
+            Title
+          </label>
           <input
             type="text"
+            className="form-control"
             id="title"
             name="title"
             value={movie.title}
@@ -88,10 +100,13 @@ export const EditMovie = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="imageURL">Image URL</label>
+        <div className="mb-3">
+          <label htmlFor="imageURL" className="form-label text-white">
+            Image URL
+          </label>
           <input
             type="text"
+            className="form-control"
             id="imageURL"
             name="imageURL"
             value={movie.imageURL}
@@ -100,10 +115,13 @@ export const EditMovie = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="rating">Rating</label>
+        <div className="mb-3">
+          <label htmlFor="rating" className="form-label text-white">
+            Rating
+          </label>
           <input
             type="number"
+            className="form-control"
             id="rating"
             name="rating"
             value={movie.rating}
@@ -114,17 +132,48 @@ export const EditMovie = () => {
           />
         </div>
 
-        <div>
-          <label htmlFor="notes">Notes</label>
+        <div className="mb-3">
+          <label htmlFor="notes" className="form-label text-white">
+            Notes
+          </label>
           <textarea
+            className="form-control"
             id="notes"
             name="notes"
             value={movie.notes || ""}
             onChange={handleInputChange}
           />
         </div>
-
-        <button type="submit">Update Movie</button>
+        <div className="mb-3">
+          <label htmlFor="watchlist" className="form-label text-white">
+            Change Watchlist?
+          </label>
+          <select
+            className="form-select"
+            id="watchlist"
+            value={selectedWatchlist || ""} // Use the movie's watchlistId initially
+            onChange={(e) => setSelectedWatchlist(parseInt(e.target.value))}
+            required
+          >
+            <option value="">Select a Watchlist</option>
+            {watchlists.length > 0 ? (
+              watchlists.map((watchlist) => {
+                return (
+                  <option key={watchlist.id} value={watchlist.id}>
+                    {watchlist.watchlistName}
+                  </option>
+                )
+              })
+            ) : (
+              <option disabled>No watchlists available</option>
+            )}
+          </select>
+        </div>
+        <div className="mb-3 d-flex justify-content-center">
+          <button type="submit" className="btn btn-primary">
+            Update Movie
+          </button>
+        </div>
       </form>
     </div>
   )

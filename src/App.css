@@ -1,8 +1,22 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.app-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./assets/Movie Shelf background image.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
   padding: 2rem;
-  text-align: center;
+  overflow: hidden;
 }
 
 .logo {

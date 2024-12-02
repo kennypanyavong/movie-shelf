@@ -10,22 +10,45 @@ export const NavBar = ({ currentUser }) => {
   }
 
   return (
-    <ul className="navbar">
-      <li className="navbar-item">
-        <Link to="/home">Home</Link>
-      </li>
-      <li className="navbar-item">
-        <Link to="/watchlists">My Watchlists</Link>
-      </li>
-      <li className="navbar-item">
-        <Link to="/add-movie">Add Movie</Link>
-      </li>
-      <li className="navbar-item">
-        <Link to="/my-profile">My Profile</Link>
-      </li>
-      <li className="navbar-item">
-        <button onClick={handleLogout}>Logout</button>
-      </li>
-    </ul>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">
+          🎥 The Movie Shelf
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <Link className="nav-link" to="/home">
+              Home
+            </Link>
+            <Link className="nav-link" to="/watchlists">
+              My Watchlists
+            </Link>
+            <Link className="nav-link" to="/add-movie">
+              Add Movie
+            </Link>
+            {/* <Link className="nav-link" to="/my-profile">
+              My Profile
+            </Link> */}
+            <button
+              className="btn btn-outline-light ms-lg-3"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
   )
 }
